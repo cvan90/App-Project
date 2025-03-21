@@ -11,7 +11,7 @@ const btnclick=() =>
   return (
     <>
     <div>
-      <h1>To-Do List</h1>
+      <Header title="To-Do List"/>
     </div>
 <div>
   <input type="text" placeholder="Enter Text to Search "></input>
