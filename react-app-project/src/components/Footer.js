@@ -7,3 +7,4 @@ const Footer = (props) =>
             </p>
         </>
     )}
+    export default Footer
