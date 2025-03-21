@@ -1,7 +1,11 @@
 
 
 function App() {
-
+const btnclick=() =>
+{
+  let msgText="---Button Pressed---"
+  console.log(msgText)
+}
 
 
   return (
@@ -11,7 +15,7 @@ function App() {
     </div>
 <div>
   <input type="text" placeholder="Enter Text to Search "></input>
-<button>Add</button>
+<button onClick={btnclick}>Add</button>
 </div>
 <div>
 
