@@ -1,4 +1,5 @@
 import Header from "./components/Header"
+import Footer from "./components/Footer"
 
 function App() {
 const btnclick=() =>
@@ -21,9 +22,7 @@ const btnclick=() =>
 
 </div>
 <div>
-  <p>
-    footer @ 2025
-  </p>
+  <Footer title="footer" year={2025}></Footer>
 </div>
     </>
   );
