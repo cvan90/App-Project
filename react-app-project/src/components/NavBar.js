@@ -3,10 +3,10 @@ function NavBar(){
     return (
         <>
         <nav>
-            <link to="/">Home</link>
+            <link to="/">Home</link>{" | "}
             <link to="/about">About</link>
         </nav>
         </>
-    )
+    );
 }
 export default NavBar;
