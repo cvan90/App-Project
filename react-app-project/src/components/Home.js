@@ -6,7 +6,13 @@ function btnclick(){
       return (
         <>
         <div>
-          <header>To-Do List</header>
+
+        </div>
+        <br></br>
+        <div>
+          <header>
+            <h1>To-Do List</h1>
+            </header>
         </div>
         <br></br>
     <div>
