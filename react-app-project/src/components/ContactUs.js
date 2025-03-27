@@ -4,9 +4,9 @@ function ContactUS() {
         <p>Contact Us</p>
         <form>
             <div>
-                <span>First Name</span><input type="text" placeholder="First Name"/>
-                <span>Last Name</span><input type="text" placeholder="Last Name"/>
-                <span>Email</span><input type="text" placeholder="Email Address"/>
+                <span>First Name:</span><input type="text" placeholder="First Name"/><br/>
+                <span>Last Name:</span><input type="text" placeholder="Last Name"/><br/>
+                <span>Email:</span><input type="text" placeholder="Email Address"/><br/>
                 <button>Submit</button>
             </div>
         </form>
