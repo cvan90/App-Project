@@ -65,6 +65,7 @@ function DeleteItem(e,id){
 },[])
 
       return (
+    
         <>
         <br></br>
         <div className="app-center-page">
