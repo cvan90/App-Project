@@ -27,10 +27,6 @@ const btnclick= (e) =>{
         const _newitem = {id:new Date().getTime(),name:txtitem,completed:false};
 
         setTmpList((prevval)=>{
-            
-            //modern javascript array add
-            //-- spread operator ... = add item to array ... include exing items 
-            //or array.push()
   
             const _lst = [...prevval,_newitem]
             setTodoList((prevval)=>[..._lst]);    
@@ -43,11 +39,29 @@ function DeleteItem(e,id){
 
   e.preventDefault()
 
-  if (!("delete item?")){
+  if (!window.confirm("delete item?")){
     return false;
     
   }
-  
+  setTmpList((prevval)=>{
+    const _lst = [...prevval]
+    
+    const _index = _lst.findIndex((item)=>{
+      if (item.id == id)
+      {
+        return true;
+      }
+    })
+
+    if(_index>0)
+    {
+      _lst.splice(_index,1)
+    }
+
+    setTodoList((prevval)=>[..._lst]);    
+    return _lst;
+  });
+
   setMsg(`--Item Deleted---${id}`)
 }
 
