@@ -5,19 +5,21 @@ function btnclick(){
 }
       return (
         <>
-        <div>
-
-        </div>
         <br></br>
         <div>
           <header>
-            <h1>To-Do List</h1>
+            <h2>To-Do List</h2>
             </header>
         </div>
         <br></br>
     <div>
       <input type="text" placeholder="Enter Text to Search "></input>
     <button onClick={btnclick}>Add</button>
+    <p>
+        <a>All</a> {" | "}
+        <a>Complete</a> {" | "}
+        <a>Incomplete</a> 
+    </p>
     </div>
     <div>
     
