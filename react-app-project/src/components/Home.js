@@ -12,6 +12,33 @@ function Home(){
 
 const [tmplist,setTmpList]=useState(temparary_todo_items);
 const [todolist,setTodoList]=useState(null);
+const [txtitem, setItem] = useState("")
+const [msgText,setMsg] = useState("")
+
+
+const btnclick= (e) =>{
+  e.preventDefault();
+    
+    if(txtitem === null ||  txtitem.trim().length === 0)
+    {
+        setMsg(`---Please Enter a Valid item to be Added---`);
+        return true;
+    }
+        const _newitem = {id:new Date().getTime(),name:txtitem,completed:false};
+
+        setTmpList((prevval)=>{
+            
+            //modern javascript array add
+            //-- spread operator ... = add item to array ... include exing items 
+            //or array.push()
+  
+            const _lst = [...prevval,_newitem]
+            setTodoList((prevval)=>[..._lst]);    
+            return _lst;
+        });
+  setMsg("Item Added");
+  setItem("");
+}
 
   useEffect(()=>{
 
@@ -23,30 +50,29 @@ const [todolist,setTodoList]=useState(null);
 
 },[])
 
-
-function btnclick(){
-    let msgText="---Item Added to List---"
-    console.log(msgText)
-}
       return (
         <>
         <br></br>
-        <div>
+        <div className="app-center-page">
           <header>
             <h2>To-Do List</h2>
             </header>
         </div>
         <br></br>
-    <div>
-      <input type="text" placeholder="Enter Item to be Added "></input>
-    <button onClick={btnclick}>Add</button>
+    <div className="app-center-page">
+      <input value={txtitem} type="text"
+       onChange={(e)=>setItem(e.target.value)}
+      placeholder="Enter Item to be Added "/>
+      {" "}
+    <button onClick={btnclick}>Add</button>{" "} <a>Clear</a>
+    <p>{msgText}</p>
     <p> Filter:&nbsp;&nbsp;
         <a>All</a> {" | "}
         <a>Complete</a> {" | "}
         <a>Incomplete</a> 
     </p>
     </div>
-    <div>
+    <div className="app-center-page">
             {todolist && todolist.map((item)=>
               <p key={item.id}>{
                 <>
@@ -64,5 +90,5 @@ function btnclick(){
         </>
       );
     }
-    
+
     export default Home;
