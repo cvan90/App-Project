@@ -38,16 +38,25 @@ function btnclick(){
         </div>
         <br></br>
     <div>
-      <input type="text" placeholder="Enter Text to Search "></input>
+      <input type="text" placeholder="Enter Item to be Added "></input>
     <button onClick={btnclick}>Add</button>
-    <p>
+    <p> Filter:&nbsp;&nbsp;
         <a>All</a> {" | "}
         <a>Complete</a> {" | "}
         <a>Incomplete</a> 
     </p>
     </div>
     <div>
-    
+            {todolist && todolist.map((item)=>
+              <p key={item.id}>{
+                <>
+                   <input type="checkbox" checked={item.completed}/>
+                    {" "}
+                    <span>{item.name}</span>
+                    {" "}
+                   <button>x</button>
+                </>}
+              </p>)}
     </div>
     <div>
       <footer>Footer @ 2025</footer>
