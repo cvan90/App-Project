@@ -39,6 +39,20 @@ const btnclick= (e) =>{
   setMsg("Item Added");
   setItem("");
 }
+function DeleteItem(e,id){
+
+  e.preventDefault()
+
+  if (!("delete item?")){
+    return false;
+    
+  }
+  
+  setMsg(`--Item Deleted---${id}`)
+}
+
+
+
 
   useEffect(()=>{
 
@@ -80,7 +94,7 @@ const btnclick= (e) =>{
                     {" "}
                     <span>{item.name}</span>
                     {" "}
-                   <button>x</button>
+                   <button onClick={(e)=>DeleteItem(e,item.id)}>x</button>
                 </>}
               </p>)}
     </div>
