@@ -1,11 +1,25 @@
-import {useEffect} from "react"
+import {useEffect, useState} from "react"
+
+const temparary_todo_items=[
+  {id:1,name:"item one", completed:false},
+  {id:2,name:"item two", completed:false},
+  {id:3,name:"item three", completed:true},
+  {id:4,name:"item four", completed:false},
+  {id:5,name:"item five", completed:false}
+]
 
 function Home(){
 
+const [tmplist,setTmpList]=useState(temparary_todo_items);
+const [todolist,setTodoList]=useState(null);
 
   useEffect(()=>{
 
   console.log("---Home Page Loaded---")
+  
+  setTodoList(tmplist)
+  console.log("---Temparary list---\n",tmplist)
+  console.log("---To-Do List---\n",todolist)
 
 },[])
 
