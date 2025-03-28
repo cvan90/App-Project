@@ -1,4 +1,13 @@
+import {useEffect} from "react"
 function ContactUS() {
+
+      useEffect(()=>{
+    
+      console.log("---Contact-Us Page Loaded---")
+    
+    },[])
+
+
     return (
         <>
         <p>Contact Us</p>

@@ -1,6 +1,17 @@
+import {useEffect} from "react"
+
 function Home(){
+
+
+  useEffect(()=>{
+
+  console.log("---Home Page Loaded---")
+
+},[])
+
+
 function btnclick(){
-    let msgText="---Button Pressed---"
+    let msgText="---Item Added to List---"
     console.log(msgText)
 }
       return (
