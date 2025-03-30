@@ -53,7 +53,7 @@ function DeleteItem(e,id){
       }
     })
 
-    if(_index>0)
+    if(_index !=-1)
     {
       _lst.splice(_index,1)
     }
@@ -64,9 +64,57 @@ function DeleteItem(e,id){
 
   setMsg(`--Item Deleted---${id}`)
 }
+const filterAll = (e) => {
+
+  e.preventDefault();
+
+  const filteredlist = tmplist;
+    
+  setTodoList(filteredlist);
+}
+const filterComplete = (e) => {
+
+  e.preventDefault();
+
+  const filteredlist = tmplist.filter((item)=>{
+      return item.completed
+  })
+
+  setTodoList(filteredlist);
+}
+const filterIncomplete = (e) => {
+
+  e.preventDefault();
+
+  const filteredlist = tmplist.filter((item)=>{
+      return !item.completed
+  })
+
+  setTodoList(filteredlist);
+}
+const ItemToggle = (e, id) => {
 
 
+  let _lst1 = tmplist.map((item)=>{
+      return   (item.id == id)?                  
+            {...item,completed:!item.completed}
+        :
+            {...item};                
+    });
 
+    let _lst2 = todolist.map((item)=>{
+      return   (item.id == id)?                  
+            {...item,completed:!item.completed}
+        :
+            {...item};                
+    });
+
+  setTmpList(_lst1);
+  setTodoList(_lst2);
+
+  setItem("");
+
+}
 
   useEffect(()=>{
 
@@ -83,31 +131,29 @@ function DeleteItem(e,id){
         <>
         <br></br>
         <div className="app-center-page">
-          <header>
             <h2>To-Do List</h2>
-            </header>
-        </div>
+            </div>
         <br></br>
-    <div className="app-center-page">
+          <div className="app-center-page">
       <input value={txtitem} type="text"
        onChange={(e)=>setItem(e.target.value)}
       placeholder="Enter Item to be Added "/>
       {" "}
-    <button onClick={btnclick}>Add</button>{" "} <a>Clear</a>
+    <button onClick={btnclick}>Add</button>{" "} <a href="#" onClick={()=> {setItem(""); setMsg("")}}>Clear</a>
     <p>{msgText}</p>
     <p> Filter:&nbsp;&nbsp;
-        <a>All</a> {" | "}
-        <a>Complete</a> {" | "}
-        <a>Incomplete</a> 
+        <a href="#" onClick={filterAll}>All</a> {" | "}
+        <a href="#" onClick={filterComplete}>Complete</a> {" | "}
+        <a href="#" onClick={filterIncomplete}>Incomplete</a> 
     </p>
     </div>
     <div className="app-center-page">
             {todolist && todolist.map((item)=>
               <p key={item.id}>{
                 <>
-                   <input type="checkbox" checked={item.completed}/>
+                   <input onChange={(e)=>ItemToggle(e,item.id)} type="checkbox" checked={item.completed}/>{" "}
                     {" "}
-                    <span>{item.name}</span>
+                    <span key={item.id} style={{'text-decoration':(item.completed)?"line-through":""}}>{item.name}</span>
                     {" "}
                    <button onClick={(e)=>DeleteItem(e,item.id)}>x</button>
                 </>}
